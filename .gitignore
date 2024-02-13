@@ -1,6 +1,6 @@
 *
-!.vscode/
-!.vscode/**
+!vscode/
+!vscode/**
 !iterm2/
 !iterm2/**
 !.gitignore

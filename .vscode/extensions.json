@@ -1,0 +1,26 @@
+{
+  "recommendations": [
+    "drcika.apc-extension",
+    "daltonmenezes.aura-theme",
+    "njpwerner.autodocstring",
+    "thang-nm.catppuccin-perfect-icons",
+    "ryanluker.vscode-coverage-gutters",
+    "ms-azuretools.vscode-docker",
+    "usernamehw.errorlens",
+    "tamasfe.even-better-toml",
+    "pomdtr.excalidraw-editor",
+    "donjayamanne.githistory",
+    "tal7aouy.icons",
+    "oderwat.indent-rainbow",
+    "alefragnani.project-manager",
+    "ms-vscode.live-server",
+    "ms-python.vscode-pylance",
+    "ninoseki.vscode-pylens",
+    "ms-python.python",
+    "ms-python.debugpy",
+    "kevinrose.vsc-python-indent",
+    "charliermarsh.ruff",
+    "gruntfuggly.todo-tree"
+		
+	]
+}

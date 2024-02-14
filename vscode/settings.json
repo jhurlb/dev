@@ -2,26 +2,24 @@
   "apc.font.family": "Hack Nerd Font",
   "apc.monospace.font.family": "Hack Nerd Font",
   "apc.electron": {
-      "titleBarStyle": "hiddenInset"
+    "titleBarStyle": "hiddenInset"
   },
   "apc.activityBar": {
-      "position": "bottom",
-      "size": 35,
-      "itemMargin": 8,
-      "hideSettings": true
-  },
-  "apc.sidebar.titlebar": {
-      "height": 40,
-      "fontSize": 10
+    "position": "bottom",
+    "size": 35,
+    "itemMargin": 8,
+    "hideSettings": true
   },
   "apc.statusBar": {
-      "position": "editor-bottom",
-      "height": 35,
-      "fontSize": 11
+    "position": "editor-bottom",
+    "height": 35,
+    "fontSize": 11
   },
   "apc.stylesheet": {
     ".title-actions": "display: none !important",
     ".editor-actions": "display: none !important",
+
+    ".monaco-workbench .part>.title>.title-label":"line-height: 40px !important",
 
     ".search-view .monaco-tl-row":"font-size: 11px !important",
     ".search-view .message": "font-size: 11px !important",
@@ -40,7 +38,7 @@
     ".part.activitybar.left": "border-color: #17161b !important",
     ".part.statusbar.status-border-top": "--status-border-top-color: #17161b !important",
 
-    ".quick-input-widget": "top: 20% !important; box-shadow: 0 0 10px 10px #17161b !important"
+    ".quick-input-widget": "top: 20% !important; box-shadow: 0 0 10px 10px #11111b !important"
   },
 
   "breadcrumbs.enabled": false,
@@ -68,12 +66,12 @@
   "indentRainbow.errorColor": "rgba(255,109,103,0.6)",
   "indentRainbow.lightIndicatorStyleLineWidth": 0.5,
   "indentRainbow.colors": [
-      "rgba(89,246,141,0.5)",
-      "rgba(132,100,198,0.6)"
+    "rgba(244,176,132,0.9)",
+    "rgba(137,180,250,0.9)"
   ],
 
   "projectManager.git.baseFolders": [
-      "~/Projects"
+    "~/Projects"
   ],
 
   "terminal.integrated.fontFamily": "Hack Nerd Font",
@@ -84,41 +82,35 @@
   "terminal.integrated.shellIntegration.decorationsEnabled": "never",
 
   "workbench.colorCustomizations": {
-    "editor.background": "#1c1b21",
-    "editorCursor.foreground": "#f3f89d",
+    "editor.background": "#181825",
+    "editorCursor.foreground": "#f1dbaa",
 
-    "editorWidget.background": "#1c1b21",
-    "editorWidget.foreground": "#8464c6",
+    "list.hoverForeground": "#f1dbaa",
+    "list.activeSelectionForeground": "#cba6f7",
 
-    "tab.activeBackground": "#1c1b21",
-    "tab.inactiveBackground": "#1c1b21",
-
-    "list.hoverForeground": "#59f68d",
-    "list.activeSelectionForeground": "#59f68d",
-
-    "terminal.background": "#1c1b21",
-    "terminalCursor.foreground": "#f3f89d",
-    "terminal.ansiBlack": "#616161",
-    "terminal.ansiBrightBlack": "#8e8e8e",
-    "terminal.ansiRed": "#ff6d67",
-    "terminal.ansiBrightRed": "#ffc4bd",
-    "terminal.ansiGreen": "#59f68d",
-    "terminal.ansiBrightGreen": "#d6fcb9",
-    "terminal.ansiYellow": "#f3f89d",
-    "terminal.ansiBrightYellow": "#fefdd5",
-    "terminal.ansiBlue": "#a5d5fe",
-    "terminal.ansiBrightBlue": "#c1e3fe",
-    "terminal.ansiMagenta": "#ff8ffd",
-    "terminal.ansiBrightMagenta": "#ffb1fe",
-    "terminal.ansiCyan": "#99ecfd",
-    "terminal.ansiBrightCyan": "#cfedf3",
-    "terminal.ansiWhite": "#f1f1f1",
-    "terminal.ansiBrightWhite": "#fffeff"
+    "terminal.background": "#181825",
+    "terminalCursor.foreground": "#f1dbaa",
+    // "terminal.ansiBlack": "#616161",
+    // "terminal.ansiBrightBlack": "#8e8e8e",
+    // "terminal.ansiRed": "#ff6d67",
+    // "terminal.ansiBrightRed": "#ffc4bd",
+    // "terminal.ansiGreen": "#59f68d",
+    // "terminal.ansiBrightGreen": "#d6fcb9",
+    // "terminal.ansiYellow": "#f3f89d",
+    // "terminal.ansiBrightYellow": "#fefdd5",
+    // "terminal.ansiBlue": "#a5d5fe",
+    // "terminal.ansiBrightBlue": "#c1e3fe",
+    // "terminal.ansiMagenta": "#ff8ffd",
+    // "terminal.ansiBrightMagenta": "#ffb1fe",
+    // "terminal.ansiCyan": "#99ecfd",
+    // "terminal.ansiBrightCyan": "#cfedf3",
+    // "terminal.ansiWhite": "#f1f1f1",
+    // "terminal.ansiBrightWhite": "#fffeff"
   },
 
-  "workbench.iconTheme": "catppuccin-perfect-dracula",
+  "workbench.iconTheme": "catppuccin-perfect-mocha",
   "workbench.layoutControl.enabled": false,
-  "workbench.colorTheme": "Aura Soft Dark (Soft Text)",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.startupEditor": "none",
   "workbench.tips.enabled": false,
 

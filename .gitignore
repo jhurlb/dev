@@ -1,6 +1,11 @@
 *
-!vscode/
-!vscode/**
+!config/
+!config/**
 !iterm2/
 !iterm2/**
+!vscode/
+!vscode/**
+!zsh/
+!zsh/**
 !.gitignore
+!init.sh

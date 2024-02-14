@@ -1,0 +1,22 @@
+if command -v git &> /dev/null
+then
+  alias gs="git status"
+  alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+fi
+
+if command -v eza &> /dev/null
+then
+  alias ls="eza"
+  alias ll="eza -alh"
+  alias tree="eza --tree"
+fi
+
+if command -v bat &> /dev/null
+then
+  alias cat="bat -p --theme Nord"
+fi
+
+if command -v zoxide &> /dev/null
+then
+  alias cd="z"
+fi

@@ -1,0 +1,48 @@
+add_newline = false
+format = """
+$time\
+$directory\
+($git_branch$git_state$git_status)\
+$python\
+$line_break\
+$character"""
+
+[directory]
+format = "[ in ](blue)[$path]($style)[$read_only]($read_only_style)"
+style = "green"
+
+[character]
+success_symbol = "[](green)"
+error_symbol = "[](red)"
+vimcmd_symbol = "[](blue)"
+
+[python]
+format = "[ with ](blue)[py$version]($style)"
+version_format = "${major}.${minor}"
+style = "green"
+detect_folders = [".venv"]
+
+[time]
+disabled = false
+format = "[at ](blue)[$time]($style)"
+style = "green"
+
+[git_branch]
+format = "[ on ](blue)[$branch]($style)"
+style = "green"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)( $ahead_behind$stashed)]($style)"
+style = "red"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\)'
+style = "bright-black"
+

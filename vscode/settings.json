@@ -89,12 +89,14 @@
     // "statusBar.foreground": "#cba6f7",
     "activityBar.background": "#1c1b22",
 
+
     "list.hoverForeground": "#f1dbaa",
     "list.activeSelectionForeground": "#cba6f7",
 
+    "sideBarTitle.foreground": "#a3de9d",
+
     "tab.activeBorderTop": "#a3de9d",
     "tab.activeForeground": "#a3de9d",
-
 
     "terminal.background": "#181825",
     "terminalCursor.foreground": "#f1dbaa",

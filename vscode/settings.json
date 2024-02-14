@@ -83,13 +83,21 @@
 
   "workbench.colorCustomizations": {
     "editor.background": "#181825",
+    "editorGutter.background": "#181825",
     "editorCursor.foreground": "#f1dbaa",
+    "statusBar.background": "#1c1b22",
+    // "statusBar.foreground": "#cba6f7",
+    "activityBar.background": "#1c1b22",
 
     "list.hoverForeground": "#f1dbaa",
     "list.activeSelectionForeground": "#cba6f7",
 
+    "tab.activeBorderTop": "#a3de9d",
+    "tab.activeForeground": "#a3de9d",
+
+
     "terminal.background": "#181825",
-    "terminalCursor.foreground": "#f1dbaa"
+    "terminalCursor.foreground": "#f1dbaa",
   },
 
   "workbench.iconTheme": "catppuccin-perfect-mocha",
@@ -101,5 +109,6 @@
   "window.commandCenter": false,
   "window.dialogStyle": "native",
   "window.nativeTabs": true,
-  "window.titleBarStyle": "native"
+  "window.titleBarStyle": "native",
+  "workbench.settings.editor": "json",
 }

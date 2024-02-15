@@ -1,4 +1,14 @@
 {
+  "animations.Install-Method": "Apc Customize UI++",
+  "animations.Active": "Indent",
+  "animations.Command-Palette": "Slide",
+  "animations.Scrolling": "Fade",
+  "animations.Tabs": "Flip",
+  "animations.CursorAnimation": true,
+  "animations.CursorAnimationOptions": {
+    "Color": "#FA03B1"
+  },
+
   "apc.font.family": "Hack Nerd Font",
   "apc.monospace.font.family": "Hack Nerd Font",
   "apc.electron": {
@@ -18,7 +28,7 @@
   "apc.stylesheet": {
     ".title-actions": "display: none !important",
     ".editor-actions": "display: none !important",
-
+    
     ".monaco-workbench .part>.title>.title-label":"line-height: 40px !important",
 
     ".search-view .monaco-tl-row":"font-size: 11px !important",
@@ -38,9 +48,12 @@
     ".part.activitybar.left": "border-color: #17161b !important",
     ".part.statusbar.status-border-top": "--status-border-top-color: #17161b !important",
 
-    ".quick-input-widget": "top: 20% !important; box-shadow: 0 0 10px 10px #11111b !important"
+    ".quick-input-widget": "top: 20% !important; box-shadow: 0 0 25px 5px #101019 !important"
   },
-
+  "apc.imports": [
+    "file:///Users/justinhurlburt/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
+  ],
+  
   "breadcrumbs.enabled": false,
 
   "editor.minimap.enabled": false,
@@ -55,6 +68,8 @@
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "editor.fontLigatures": true,
+  "editor.lightbulb.enabled": "off",
+  "editor.occurrencesHighlight": "off",
 
   "explorer.compactFolders": false,
 
@@ -81,19 +96,25 @@
   "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.shellIntegration.decorationsEnabled": "never",
 
+  "window.commandCenter": false,
+  "window.dialogStyle": "native",
+  "window.nativeTabs": true,
+  "window.titleBarStyle": "native",
+
   "workbench.colorCustomizations": {
-    "editor.background": "#181825",
-    "editorGutter.background": "#181825",
-    "editorCursor.foreground": "#f1dbaa",
-    "statusBar.background": "#1c1b22",
-    // "statusBar.foreground": "#cba6f7",
     "activityBar.background": "#1c1b22",
 
+    "editor.background": "#181825",
+    "editorCursor.foreground": "#f1dbaa",
+    "editorGroup.emptyBackground": "#181825",
+    "editorGutter.background": "#181825",
 
-    "list.hoverForeground": "#f1dbaa",
     "list.activeSelectionForeground": "#cba6f7",
+    "list.hoverForeground": "#f1dbaa",
 
+    "scrollbar.shadow": "#181825",
     "sideBarTitle.foreground": "#a3de9d",
+    "statusBar.background": "#1c1b22",
 
     "tab.activeBorderTop": "#a3de9d",
     "tab.activeForeground": "#a3de9d",
@@ -101,16 +122,10 @@
     "terminal.background": "#181825",
     "terminalCursor.foreground": "#f1dbaa",
   },
-
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "catppuccin-perfect-mocha",
   "workbench.layoutControl.enabled": false,
-  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.settings.editor": "json",
   "workbench.startupEditor": "none",
   "workbench.tips.enabled": false,
-
-  "window.commandCenter": false,
-  "window.dialogStyle": "native",
-  "window.nativeTabs": true,
-  "window.titleBarStyle": "native",
-  "workbench.settings.editor": "json",
 }

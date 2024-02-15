@@ -1,4 +1,5 @@
 *
+
 !config/
 !config/**
 !iterm2/
@@ -10,3 +11,5 @@
 !.gitignore
 !init.sh
 !README.md
+
+.DS_Store

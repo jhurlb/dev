@@ -1,4 +1,4 @@
-#!/usr/bin/env ksh
+#!/usr/bin/env zsh
 
 set -eux
 zshrc_path="${ZDOTDIR:-~}/.zshrc"

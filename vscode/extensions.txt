@@ -1,4 +1,5 @@
 alefragnani.project-manager
+brandonkirbyson.vscode-animations
 catppuccin.catppuccin-vsc
 charliermarsh.ruff
 donjayamanne.githistory

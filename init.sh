@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-set -u
+set -eux
+zshrc_path="${ZDOTDIR:-~}/.zshrc"
 install_homebrew=2
 install_fonts=2
 install_packages=2
@@ -8,12 +9,15 @@ install_starship=2
 install_iterm2=2
 install_vscode=2
 install_vscode_ext=2
+configure_gpg=2
+gpg_key_id=
 
 help() {
   cat << EOF
 usage: $0 [OPTIONS]
 
     --help              Show this message
+    --gpg-key-id        GPG Key Fingerprint
     -y                  Yes to all prompts
     --[no-]brew         Enable/disable installation of homebrew
     --[no-]fonts        Enable/disable installation of fonts
@@ -22,6 +26,7 @@ usage: $0 [OPTIONS]
     --[no-]iterm2       Enable/disable installation of iterm2
     --[no-]vscode       Enable/disable installation of vscode
     --[no-]vscode-ext   Enable/disable installation of vscode extensions
+    --[no-]gpg          Enable/disable configuration of gpg
 
 
 EOF
@@ -33,6 +38,7 @@ for opt in "$@"; do
       help
       exit 0
       ;;
+    --gpg-key-id)     gpg_key_id=$OPTARG   ;;
     -y)
       install_homebrew=1
       install_fonts=1
@@ -41,6 +47,7 @@ for opt in "$@"; do
       install_iterm2=1
       install_vscode=1
       install_vscode_ext=1
+      configure_gpg=1
       ;;
     --brew)           install_homebrew=1   ;;
     --no-brew)        install_homebrew=0   ;;
@@ -56,6 +63,8 @@ for opt in "$@"; do
     --no-vscode)      install_vscode=0     ;;
     --vscode-ext)     install_vscode_ext=1 ;;
     --no-vscode-ext)  install_vscode_ext=0 ;;
+    --gpg)            configure_gpg=1      ;;
+    --no-gpg)         configure_gpg=0      ;;
     *)
       echo "unknown option: $opt"
       help
@@ -94,6 +103,54 @@ install_if_missing_brew() {
     echo found!
   fi
 }
+
+append_line() {
+  set -e
+
+  local line file pat lno
+  line="$1"
+  file="$2"
+  pat="${3:-}"
+  lno=""
+
+  echo "Update $file:"
+  echo "  - $line"
+  if [ -f "$file" ]; then
+    if [ $# -lt 4 ]; then
+      lno=$(\grep -nF "$line" "$file" | sed 's/:.*//' | tr '\n' ' ')
+    else
+      lno=$(\grep -nF "$pat" "$file" | sed 's/:.*//' | tr '\n' ' ')
+    fi
+  fi
+  if [ -n "$lno" ]; then
+    echo "    - Already exists: line #$lno"
+  else
+    [ -f "$file" ] && echo >> "$file"
+    echo "$line" >> "$file"
+    echo "    + Added"
+  fi
+  echo
+  set +e
+}
+
+reload_zshrc() {
+  ##############################
+  #        ZSH  RELOAD         #
+  ##############################
+  echo
+  echo -n " - Sourcing '.zshrc' from '$HOME/'..."
+  source $HOME/.zshrc
+  echo "done!"
+}
+
+##############################
+#            ZSH             #
+##############################
+echo
+echo -n " - Symlinking '.zshrc' and '.aliases' in '$HOME/'..."
+ln -sf "$PWD/zsh/.zshrc" ~/.zshrc
+ln -sf "$PWD/zsh/.aliases" ~/.aliases
+echo "done!"
 
 ##############################
 #         HOMEBREW           #
@@ -166,6 +223,57 @@ if [ $install_packages -eq 1 ]; then
     fi
   done
 fi
+
+##############################
+#            GPG             #
+##############################
+if [ $configure_gpg -eq 2 ]; then
+  ask "Configure GPG conf?"
+  configure_gpg=$?
+fi
+if [ $configure_gpg -eq 1 ]; then
+  install_if_missing_brew "gpg2"
+  install_if_missing_brew "gnupg"
+  install_if_missing_brew "pinentry-mac"
+  echo
+  echo " - Configuring GPG..."
+  gpg_conf_dir="$HOME/.gnupg"
+  if ! test -d "$gpg_conf_dir"; then
+    echo -n "- GPG creating conf dir..."
+    mkdir "$gpg_conf_dir"
+    echo "done!"
+
+    echo -n "- GPG setting conf dir perms..."
+    chmod "0700" "$gpg_conf_dir"
+    echo "done!"
+  fi
+
+  echo " - GPG setting agent..."
+  echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" > "$gpg_conf_dif/gpg-agent.conf"
+  echo "done!"
+
+  echo -n " - GPG setting 'GPG_TTY' in '$zshrc_path'..."
+  append_line 'export GPG_TTY=$(tty)' "$zshrc_path"
+  echo "done!"
+
+  reload_zshrc
+
+  echo " - GPG restarting..."
+  killall gpg-agent
+  echo "done!"
+  echo -n " - GPG setting git GPG..."
+  git config --global gpg.program $(which gpg)
+  echo "done!"
+  if [ -z "$gpg_key_id" ]; then
+    echo -n " - GPG setting git user gpg signing key..."
+    git config --global user.signingkey "$gpg_key_id"
+    echo "done!"
+  fi
+  echo -n " - GPG setting git to sign all commits..."
+  git config --global commit.gpgsign true
+  echo "done!"
+fi
+
 
 ##############################
 #      STARSHIP  PROMPT      #
@@ -257,17 +365,4 @@ if [ $install_vscode -eq 1 ]; then
   fi
 fi
 
-##############################
-#            ZSH             #
-##############################
-echo
-echo -n " - Symlinking '.zshrc' and '.aliases' in '$HOME/'..."
-ln -sf "$PWD/zsh/.zshrc" ~/.zshrc
-ln -sf "$PWD/zsh/.aliases" ~/.aliases
-echo "done!"
-
-echo
-echo
-echo "!RELOAD TERMINAL!"
-echo
-echo
+reload_zshrc

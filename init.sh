@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env ksh
 
 set -eux
 zshrc_path="${ZDOTDIR:-~}/.zshrc"
@@ -180,13 +180,6 @@ fi
 if [ $install_fonts -eq 1 ]; then
   brew tap homebrew/cask-fonts
   install_if_missing_brew font-hack-nerd-font
-  # if ! brew_installed "font-hack-nerd-font"; then
-  #   echo "not found, installing..."
-  #   brew tap homebrew/cask-fonts
-  #   brew install font-hack-nerd-font
-  # else
-  #   echo found!
-  # fi
 fi
 
 ##############################
@@ -249,7 +242,7 @@ if [ $configure_gpg -eq 1 ]; then
   fi
 
   echo " - GPG setting agent..."
-  echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" > "$gpg_conf_dif/gpg-agent.conf"
+  echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" > "$gpg_conf_dir/gpg-agent.conf"
   echo "done!"
 
   echo -n " - GPG setting 'GPG_TTY' in '$zshrc_path'..."
@@ -262,7 +255,7 @@ if [ $configure_gpg -eq 1 ]; then
   killall gpg-agent
   echo "done!"
   echo -n " - GPG setting git GPG..."
-  git config --global gpg.program $(which gpg)
+  git config --global gpg.program "$(which gpg)"
   echo "done!"
   if [ -z "$gpg_key_id" ]; then
     echo -n " - GPG setting git user gpg signing key..."
@@ -285,13 +278,6 @@ fi
 if [ $install_starship -eq 1 ]; then
   echo
   install_if_missing_brew starship
-  # echo -n " - Checking for 'Starship Prompt'..."
-  # if ! brew_installed starshipe; then
-  #   echo "not found, installing..."
-  #   brew install starship
-  # else
-  #   echo "found!"
-  # fi
   echo
   echo " - Configuring..."
   home_config_dir="$HOME/.config"
@@ -313,13 +299,6 @@ if [ $install_iterm2 -eq 2 ]; then
 fi
 if [ $install_iterm2 -eq 1 ]; then
   install_if_missing_brew iterm2
-  # echo -n " - Checking for 'iterm2'..."
-  # if ! brew_installed "iterm2"; then
-  #   echo "not found, installing..."
-  #   brew install iterm2
-  # else
-  #   echo found!
-  # fi
   iterm2_config_dir="$HOME/Library/Application Support/iTerm2/DynamicProfiles/Gibson.json"
   echo
   echo " - Configuring..."

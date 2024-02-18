@@ -1,8 +1,8 @@
 # iTerm2
-![iTerm2](https://github.com/jhurlb/dev/blob/main/ansible/roles/configure/files/img/Screenshot-iTerm2?raw=true)
+![iTerm2](https://raw.githubusercontent.com/jhurlb/dev/main/ansible/roles/configure/files/img/Screenshot-iTerm2.png)
 
 # VSCode
-![VSCode](https://github.com/jhurlb/dev/blob/main/ansible/roles/configure/files/img/Screenshot-VSCode?raw=true)
+![VSCode](https://raw.githubusercontent.com/jhurlb/dev/main/ansible/roles/configure/files/img/Screenshot-VSCode.png)
 
 # Useful
 

@@ -9,7 +9,7 @@ $character"""
 
 [directory]
 format = "[ in ](blue)[$path]($style)[$read_only]($read_only_style)"
-style = "green"
+style = "bold green"
 
 [character]
 success_symbol = "[](green)"
@@ -19,20 +19,20 @@ vimcmd_symbol = "[](blue)"
 [python]
 format = "[ with ](blue)[py$version]($style)"
 version_format = "${major}.${minor}"
-style = "green"
+style = "bold green"
 detect_folders = [".venv"]
 
 [time]
 disabled = false
 format = "[at ](blue)[$time]($style)"
-style = "green"
+style = "bold green"
 
 [git_branch]
 format = "[ on ](blue)[$branch]($style)"
-style = "green"
+style = "bold green"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)( $ahead_behind$stashed)]($style)"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](bold 218)( $ahead_behind$stashed)]($style)"
 style = "red"
 conflicted = "​"
 untracked = "​"

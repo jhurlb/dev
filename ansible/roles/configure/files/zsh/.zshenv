@@ -4,5 +4,3 @@ export HISTFILE="$ZDOTDIR/.zhistory"   # History filepath
 export DIRSTACKSIZE=20
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH  # Homebrew
-
-# export GPG_TTY=$(tty)                  # GPG

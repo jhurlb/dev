@@ -6,8 +6,9 @@ if (( $+commands[git] )); then
 fi
 
 if (( $+commands[eza] )); then
-  alias ls="eza"
-  alias ll="eza -alh"
+  alias ls="eza -l"
+  alias lsa="eza -al"
+  alias lsal="eza -alh"
   alias tree="eza --tree"
 fi
 
@@ -17,4 +18,5 @@ fi
 
 if (( $+commands[zoxide] )); then
   alias cd="z"
+  alias cdp="z $HOME/Projects"
 fi

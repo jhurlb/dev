@@ -205,5 +205,45 @@
   {
     "key": "shift+cmd+m",
     "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "ctrl+c",
+    "command": "cursorPageDown",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "pagedown",
+    "command": "-cursorPageDown",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+v",
+    "command": "cursorPageUp",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "pageup",
+    "command": "-cursorPageUp",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+v",
+    "command": "cursorPageUpSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+pageup",
+    "command": "-cursorPageUpSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "cursorPageDownSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+pagedown",
+    "command": "-cursorPageDownSelect",
+    "when": "textInputFocus"
   }
 ]

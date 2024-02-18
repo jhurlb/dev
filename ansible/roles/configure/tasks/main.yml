@@ -1,7 +1,7 @@
 ---
 - name: Set Wallpaper
   ansible.builtin.command: |
-    osascript -e 'tell application "Finder" to set desktop picture to POSIX file "{{ role_path }}/files/img/astronaut_jellyfish.png"'
+    osascript -e 'tell application "Finder" to set desktop picture to POSIX file "{{ role_path }}/files/img/astronaut_jellyfish.jpg"'
   changed_when: true
 
 - name: Configure shell .hushlogin

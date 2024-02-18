@@ -1,3 +1,6 @@
+# Wallpaper
+![Astronaut Jellyfish](https://raw.githubusercontent.com/jhurlb/dev/main/ansible/roles/configure/files/img/astronaut_jellyfish.jpg)
+
 # iTerm2
 ![iTerm2](https://raw.githubusercontent.com/jhurlb/dev/main/ansible/roles/configure/files/img/Screenshot-iTerm2.png)
 

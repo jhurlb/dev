@@ -1,3 +1,6 @@
+# All Together
+![All Together](https://raw.githubusercontent.com/jhurlb/dev/main/ansible/roles/configure/files/img/Screenshot-Everything.png)
+
 # Wallpaper
 ![Astronaut Jellyfish](https://raw.githubusercontent.com/jhurlb/dev/main/ansible/roles/configure/files/img/astronaut_jellyfish.jpg)
 

@@ -1,0 +1,26 @@
+[core]
+  fsmonitor = true
+
+[user]
+  name = {{ git_author_name }}
+  email = {{ git_author_email }}
+  signingkey = {{ git_gpg_signing_key }}
+
+[init]
+  defaultBranch = main
+
+[pull]
+  ff = false
+  rebase = false
+
+[push]
+  default = current
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = {{ git_gpg_allowed_signers }}
+
+[commit]
+  gpgsign = true

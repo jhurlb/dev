@@ -17,7 +17,7 @@
   "apc.activityBar": {
     "position": "bottom",
     "size": 35,
-    "itemMargin": 8,
+    "itemMargin": 3,
     "hideSettings": true
   },
   "apc.statusBar": {
@@ -51,7 +51,7 @@
     ".quick-input-widget": "top: 20% !important; box-shadow: 0 0 25px 5px #101019 !important"
   },
   "apc.imports": [
-    "file:///Users/justinhurlburt/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
+    "${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
   ],
   
   "breadcrumbs.enabled": false,
@@ -86,8 +86,10 @@
   ],
 
   "projectManager.git.baseFolders": [
-    "~/Projects"
+    "$home/Projects"
   ],
+
+  "security.workspace.trust.enabled": false,
 
   "terminal.integrated.fontFamily": "Hack Nerd Font",
   "terminal.integrated.fontSize": 14,
@@ -122,10 +124,13 @@
     "terminal.background": "#181825",
     "terminalCursor.foreground": "#f1dbaa",
   },
+
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "catppuccin-perfect-mocha",
   "workbench.layoutControl.enabled": false,
   "workbench.settings.editor": "json",
   "workbench.startupEditor": "none",
   "workbench.tips.enabled": false,
+  "redhat.telemetry.enabled": false,
+  "ansible.validation.lint.enabled": false,
 }

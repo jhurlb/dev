@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "dev"
+version = "1.0.0"
+description = "Local configuration for development"
+authors = ["Justin Hurlburt <jhurlb@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+ansible = "^9.2.0"
+ansible-lint = { version = "^24.2.0", markers = 'platform_system != "Windows"' }
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

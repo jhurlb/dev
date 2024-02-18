@@ -1,22 +1,20 @@
-if command -v git &> /dev/null
-then
+#!/usr/bin/env zsh
+
+if (( $+commands[git] )); then
   alias gs="git status"
   alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 fi
 
-if command -v eza &> /dev/null
-then
+if (( $+commands[eza] )); then
   alias ls="eza"
   alias ll="eza -alh"
   alias tree="eza --tree"
 fi
 
-if command -v bat &> /dev/null
-then
+if (( $+commands[bat] )); then
   alias cat="bat -p --theme Nord"
 fi
 
-if command -v zoxide &> /dev/null
-then
+if (( $+commands[zoxide] )); then
   alias cd="z"
 fi

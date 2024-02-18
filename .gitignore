@@ -1,7 +1,10 @@
 *
-
+!ansible/
+!ansible/**
 !config/
 !config/**
+!img/
+!img/**
 !iterm2/
 !iterm2/**
 !vscode/
@@ -9,7 +12,11 @@
 !zsh/
 !zsh/**
 !.gitignore
+!ansible.cfg
 !init.sh
+!poetry.*
+!pyproject.toml
 !README.md
 
 .DS_Store
+__pycache__

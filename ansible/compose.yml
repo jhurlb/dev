@@ -1,0 +1,7 @@
+---
+- name: Configure localhost for development
+  hosts: localhost
+  connection: local
+  roles:
+    - packages
+    - configure

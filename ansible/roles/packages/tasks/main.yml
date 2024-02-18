@@ -1,0 +1,44 @@
+---
+- name: Check if homebrew is Installed
+  block:
+    - name: Try homebrew in check_mode
+      community.general.homebrew:
+        update_homebrew: true
+      check_mode: true
+  rescue:
+    - name: Fail Homebrew not Installed
+      ansible.builtin.fail:
+        msg: Homebrew is not installed...Install from https://brew.sh
+
+- name: Homebrew Update
+  community.general.homebrew:
+    update_homebrew: true
+
+- name: Homebrew Taps
+  community.general.homebrew_tap:
+    name:
+      - homebrew/cask-fonts # https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#option-2-homebrew-fonts
+    state: present
+
+- name: Homebrew Packages
+  community.general.homebrew:
+    name:
+      - git       # https://git-scm.com/
+      - zsh       # https://zsh.sourceforge.io/
+      - eza       # https://github.com/eza-community/eza
+      - bat       # https://github.com/sharkdp/bat
+      - ripgrep   # https://github.com/BurntSushi/ripgrep
+      - fzf       # https://github.com/junegunn/fzf
+      - zoxide    # https://github.com/ajeetdsouza/zoxide
+      - pure      # https://github.com/sindresorhus/pure
+      - starship  # https://starship.rs/
+      - gnupg     # https://formulae.brew.sh/formula/gnupg
+    state: present
+
+- name: Homebrew Casks
+  community.general.homebrew_cask:
+    name:
+      - font-hack-nerd-font # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack
+      - visual-studio-code  # https://code.visualstudio.com/
+      # - reactangle          # https://rectangleapp.com/
+    state: present

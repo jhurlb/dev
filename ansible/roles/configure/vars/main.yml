@@ -1,0 +1,15 @@
+---
+# MacOS
+application_support_path: "{{ ansible_env.HOME }}/Library/Application Support"
+
+# .gitconfig
+git_author_name: Justin Hurlburt
+git_author_email: jhurlb@gmail.com
+git_gpg_signing_key: "{{ ansible_env.HOME }}/.ssh/id_ed25519.pub"
+git_gpg_allowed_signers: "{{ ansible_env.HOME }}/.ssh/allowed_signers"
+
+#iTerm
+iterm_path: "{{ application_support_path }}/iTerm2"
+
+# VSCode Path
+vscode_path: "{{ application_support_path }}/Code"

@@ -21,8 +21,10 @@ brew uninstall iterm2
 
 ### Remove VSCode Fully
 ```shell
-rm -r "$HOME/Library/Application Support/Code" "~/.vscode"
-brew uninstall visual-studio-code
+rm -r "$HOME/Library/Application Support/Code" "$HOME/.vscode"
+which code && sudo rm -r "$(which code)"
+brew list visual-studio-code || rm -r "/Applications/Visual Studio Code.app"
+brew list visual-studio-code && brew uninstall visual-studio-code
 ```
 
 # Using GPG

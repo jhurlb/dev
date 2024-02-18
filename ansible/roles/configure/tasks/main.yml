@@ -1,0 +1,100 @@
+---
+- name: Set Wallpaper
+  ansible.builtin.command: |
+    osascript -e 'tell application "Finder" to set desktop picture to POSIX file "{{ role_path }}/files/img/astronaut_jellyfish.png"'
+  changed_when: true
+
+- name: Configure shell .hushlogin
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.hushlogin"
+    state: touch
+    mode: "0644"
+    modification_time: preserve
+    access_time: preserve
+
+- name: Configure fzf for zsh
+  ansible.builtin.shell: "$(brew --prefix)/opt/fzf/install --completion --no-key-bindings --update-rc --no-bash --no-fish"
+  changed_when: true
+
+- name: Configure Shell
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/zsh/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/{{ item }}"
+    state: link
+    force: true
+    mode: "0644"
+  loop:
+    - .aliases
+    - .zshenv
+    - .zshrc
+
+- name: Create directory if not exists - ~/.config
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config"
+    state: directory
+    mode: "0755"
+
+- name: Configure Shell Prompt
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/starship/starship.toml"
+    dest: "{{ ansible_env.HOME }}/.config/starship.toml"
+    state: link
+    force: true
+    mode: "0644"
+
+- name: Configure Git
+  ansible.builtin.template:
+    src: "{{ role_path }}/templates/git/.gitconfig.j2"
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    mode: "0644"
+
+- name: Configure Git GPG ssh
+  ansible.builtin.copy:
+    src: "{{ git_gpg_signing_key }}"
+    dest: "{{ git_gpg_allowed_signers }}"
+    mode: "0644"
+
+- name: Configure iterm2 Preferences
+  ansible.builtin.command: "defaults write com.googlecode.iterm2 {{ item }}"
+  changed_when: true
+  loop:
+    - "'PrefsCustomFolder' -string \"{{ role_path }}/files/iterm2/\""
+    - LoadPrefsFromCustomFolder true
+    - SaveChanges -string 'Automatically'
+
+- name: Symlink iterm2 Profiles
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/iterm2/Profiles.json"
+    dest: "{{ iterm_path }}/DynamicProfiles/Profiles.jon"
+    state: link
+    force: true
+    mode: "0644"
+
+- name: Check VSCode Path Exists
+  ansible.builtin.stat:
+    path: "{{ vscode_path }}"
+  register: vscode_path_check
+
+# this is just here so that vscode creates all of it's directories
+- name: Kickstart VSCode
+  ansible.builtin.command: code --update-extensions
+  register: vscode_update_ext
+  changed_when: not vscode_update_ext.stdout is search("No extension to update")
+  when: not vscode_path_check.stat.exists
+
+- name: Configure VSCode Keybindings
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/vscode/{{ item }}.json"
+    dest: "{{ vscode_path }}/User/{{ item }}.json"
+    state: link
+    force: true
+    mode: "0644"
+  loop:
+    - keybindings
+    - settings
+
+- name: Install VSCode Extensions
+  ansible.builtin.command: code --install-extension "{{ item }}" --force
+  register: install_output
+  changed_when: install_output.stdout is search("successfully installed")
+  with_lines: cat "{{ role_path }}/files/vscode/extensions.txt"

@@ -245,5 +245,15 @@
     "key": "shift+pagedown",
     "command": "-cursorPageDownSelect",
     "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+p",
+    "command": "cursorUpSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "cursorDownSelect",
+    "when": "textInputFocus"
   }
 ]

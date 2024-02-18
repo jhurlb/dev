@@ -19,4 +19,5 @@ fi
 if (( $+commands[zoxide] )); then
   alias cd="z"
   alias cdp="z $HOME/Projects"
+  alias cdas"z $HOME/Library/Application Support"
 fi

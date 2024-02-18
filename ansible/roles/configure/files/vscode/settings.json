@@ -12,7 +12,8 @@
   "apc.font.family": "Hack Nerd Font",
   "apc.monospace.font.family": "Hack Nerd Font",
   "apc.electron": {
-    "titleBarStyle": "hiddenInset"
+    "titleBarStyle": "hiddenInset",
+    "opacity": 0.95,
   },
   "apc.activityBar": {
     "position": "bottom",
@@ -56,20 +57,23 @@
   
   "breadcrumbs.enabled": false,
 
-  "editor.minimap.enabled": false,
-  "editor.glyphMargin": false,
-  "editor.fontFamily": "Hack Nerd Font",
+  "editor.accessibilitySupport": "off",
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "block",
+  "editor.cursorSurroundingLines": 10,
+  "editor.detectIndentation": false,
   "editor.folding": false,
+  "editor.fontFamily": "Hack Nerd Font",
+  "editor.fontLigatures": true,
+  "editor.glyphMargin": false,
+  "editor.lightbulb.enabled": "off",
+  "editor.minimap.enabled": false,
+  "editor.occurrencesHighlight": "off",
+  "editor.overviewRulerBorder": false,
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
-  "editor.overviewRulerBorder": false,
-  "editor.cursorStyle": "block",
-  "editor.cursorSmoothCaretAnimation": "on",
   "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-  "editor.fontLigatures": true,
-  "editor.lightbulb.enabled": "off",
-  "editor.occurrencesHighlight": "off",
 
   "explorer.compactFolders": false,
 
@@ -77,13 +81,13 @@
 
   "files.insertFinalNewline": true,
 
-  "indentRainbow.indicatorStyle": "light",
-  "indentRainbow.errorColor": "rgba(255,109,103,0.6)",
-  "indentRainbow.lightIndicatorStyleLineWidth": 0.5,
   "indentRainbow.colors": [
     "rgba(244,176,132,0.9)",
     "rgba(137,180,250,0.9)"
   ],
+  "indentRainbow.errorColor": "rgba(255,109,103,0.6)",
+  "indentRainbow.indicatorStyle": "light",
+  "indentRainbow.lightIndicatorStyleLineWidth": 0.5,
 
   "projectManager.git.baseFolders": [
     "$home/Projects"
@@ -97,6 +101,7 @@
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+  "terminal.integrated.enablePersistentSessions": false,
 
   "window.commandCenter": false,
   "window.dialogStyle": "native",
@@ -133,4 +138,7 @@
   "workbench.tips.enabled": false,
   "redhat.telemetry.enabled": false,
   "ansible.validation.lint.enabled": false,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
 }
